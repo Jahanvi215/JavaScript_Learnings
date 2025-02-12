@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+    <style>
+        body{
+            background-color: #313131;
+        }
+    </style>
+</head>
+<body>
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+    
+    <script>
+        function init() {
+        var name = "Mozilla"; 
+        function displayName() {
+        console.log(name); 
+        }
+  displayName();
+}
+init();
+
+        // function outer(){
+        //     let username = "Jahanvi"
+        //     function inner (){
+        //         console.log(`inner ${username}`); 
+        //     }
+        //     function inner2(){
+        //         console.log(`inner 2 ${username}`);
+                
+        //     }
+        //     inner()
+        //     inner2()
+        // }
+        // outer()
+        // console.log(username);
+        
+    </script>
+
+    <script>
+
+        // document.getElementById('orange').addEventListener('click', function(){
+        //     document.body.style.backgroundColor = 'orange'
+        // })
+        // document.getElementById('green').addEventListener('click', function(){
+        //     document.body.style.backgroundColor = 'green'
+        // })
+
+        function clickHandler(color){
+
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+
+        document.getElementById('orange').onclick = clickHandler('orange')
+        document.getElementById('green').onclick = clickHandler('green')
+    </script>
+</body>
+</html>
